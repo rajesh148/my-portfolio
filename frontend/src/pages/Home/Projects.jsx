@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { projects } from "../../utils/Constants";
 import SectionTittle from "../../components/SectionTittle";
 import { useSelector } from "react-redux";
+import PlaceholderImg from "../../assets/Developer_2.webp";
 
 const Projects = () => {
   const [expIdx, setExpIdx] = useState(0);
@@ -38,24 +39,35 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-8">
-          <h1 className="text-secondary text-xl">{projects[expIdx].title}</h1>
-          <p className="text-white">{projects[expIdx].description}</p>
-          <h1 className="text-white ">
-            {projects[expIdx].technologies.length > 0 && "Technologies used:"}
-          </h1>
-          <div className="flex flex-row gap-3 flex-wrap -mt-[25px]">
-            {projects[expIdx].technologies.map((tech) => (
-              <div className="flex flex-row" key={tech}>
-                <span className="text-white">{tech}</span>
-              </div>
-            ))}
+        <div className="flex gap-1">
+          <img
+            src={
+              projects[expIdx].imageUrl === ""
+                ? PlaceholderImg
+                : projects[expIdx].imageUrl
+            }
+            alt="image"
+            className="h-60 w-72"
+          />
+          <div className="flex flex-col gap-8">
+            <h1 className="text-secondary text-xl">{projects[expIdx].title}</h1>
+            <p className="text-white">{projects[expIdx].description}</p>
+            <h1 className="text-white ">
+              {projects[expIdx].technologies.length > 0 && "Technologies used:"}
+            </h1>
+            <div className="flex flex-row gap-3 flex-wrap -mt-[25px]">
+              {projects[expIdx].technologies.map((tech) => (
+                <div className="flex flex-row" key={tech}>
+                  <span className="text-white">{tech}</span>
+                </div>
+              ))}
+            </div>
+            {projects[expIdx].link && (
+              <a href="#" className="text-white">
+                {projects[expIdx].link}
+              </a>
+            )}
           </div>
-          {projects[expIdx].link && (
-            <a href="#" className="text-white">
-              {projects[expIdx].link}
-            </a>
-          )}
         </div>
       </div>
     </div>

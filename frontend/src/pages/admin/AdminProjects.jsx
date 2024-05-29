@@ -19,13 +19,9 @@ const AdminProjects = () => {
 
   const onFinish = async (values) => {
     console.log("Success:", values);
-
     const tempTechs = values.technologies.split(",");
-
     console.log(tempTechs);
-
     values.technologies = tempTechs;
-
     try {
       dispatch(ShowLoading());
       let response;
@@ -79,6 +75,7 @@ const AdminProjects = () => {
       <div className="flex justify-end mb-3">
         <Button
           onClick={() => {
+            setType("add");
             setSelectedItemForEdit(null);
             setShowEditAddModal(true);
           }}
@@ -88,7 +85,7 @@ const AdminProjects = () => {
         </Button>
       </div>
 
-      <div className="grid grid-cols-4 gap-5  md:grid-cols-1 lg:grid-cols-2">
+      <div className="grid grid-cols-3 gap-5  md:grid-cols-1 lg:grid-cols-2">
         {projects.map((project) => (
           <div
             key={project._id}
@@ -96,6 +93,11 @@ const AdminProjects = () => {
           >
             <h1 className="text-primary text-2xl font-bold">{project.title}</h1>
             <hr />
+            <img
+              src={project.imageUrl}
+              alt="Project-img"
+              className="h-60 w-80"
+            />
             <p>{project.description}</p>
             <h1>Techs:</h1>
             <div className="flex flex-row gap-2 flex-wrap -mt-[10px] ">
@@ -135,7 +137,7 @@ const AdminProjects = () => {
           onCancel={() => {
             setShowEditAddModal(false);
             setSelectedItemForEdit(null);
-            // setType("");
+            setType("edit");
           }}
           maskClosable={false}
         >
@@ -185,6 +187,7 @@ const AdminProjects = () => {
                     setShowEditAddModal(false);
                     setSelectedItemForEdit(null);
                     // setType("");
+                    setType("edit");
                   }}
                 >
                   Cancel

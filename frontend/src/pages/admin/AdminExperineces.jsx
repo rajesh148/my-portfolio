@@ -9,7 +9,6 @@ const AdminExperineces = () => {
   const [showEditAddModal, setShowEditAddModal] = useState(false);
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
-  const [form] = Form.useForm();
 
   const dispatch = useDispatch();
   const { portfolioData } = useSelector((state) => state.root);
@@ -40,7 +39,6 @@ const AdminExperineces = () => {
         setSelectedItemForEdit(null);
         dispatch(HideLoading());
         dispatch(ReloadData(true));
-        form.resetFields();
       } else {
         message.error(response.data.message);
       }
@@ -74,9 +72,9 @@ const AdminExperineces = () => {
       <div className="flex justify-end mb-3">
         <Button
           onClick={() => {
+            setType("add");
             setSelectedItemForEdit(null);
             setShowEditAddModal(true);
-            // setType("add");
           }}
           className="bg-primary text-white"
         >
@@ -127,17 +125,16 @@ const AdminExperineces = () => {
           onCancel={() => {
             setShowEditAddModal(false);
             setSelectedItemForEdit(null);
-            // setType("add");
+            setType("edit");
           }}
           maskClosable={false}
         >
           <Form
-            form={form}
             onFinish={onFinish}
             // onFinishFailed={onFinishFailed}
             autoComplete="off"
             layout="vertical"
-            initialValues={selectedItemForEdit}
+            initialValues={{ ...selectedItemForEdit }}
           >
             <Form.Item label="role" name="role">
               <Input placeholder="role" />
@@ -170,7 +167,7 @@ const AdminExperineces = () => {
                   onClick={() => {
                     setShowEditAddModal(false);
                     setSelectedItemForEdit(null);
-                    // setType("add");
+                    setType("edit");
                   }}
                 >
                   Cancel

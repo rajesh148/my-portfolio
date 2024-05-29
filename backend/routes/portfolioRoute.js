@@ -210,7 +210,7 @@ router.post("/admin-login", async (req, res) => {
       password: req.body.password,
     });
 
-    user.password = "";
+    if (user) user.password = "";
 
     if (user) {
       res.status(200).send({
@@ -227,6 +227,7 @@ router.post("/admin-login", async (req, res) => {
     }
   } catch (error) {
     console.log("login error", error);
+    message.error(error);
     res.status(500).send(error);
   }
 });

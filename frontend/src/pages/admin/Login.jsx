@@ -7,18 +7,11 @@ import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/rootSlice";
 
 const Login = () => {
-  const [user, setUser] = useState({
-    username: "",
-    password: "",
-  });
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onFinish = async (values) => {
     console.log("Success:", values);
-
-    setUser(values);
 
     try {
       dispatch(ShowLoading());
