@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { projects } from "../../utils/Constants";
+// import { projects } from "../../utils/Constants";
 import SectionTittle from "../../components/SectionTittle";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
   const [expIdx, setExpIdx] = useState(0);
+
+  const { portfolioData } = useSelector((state) => state.root);
+
+  if (!portfolioData) return null;
+
+  let { projects } = portfolioData;
 
   const handleExpIdx = (id) => {
     setExpIdx(id);
@@ -34,6 +41,21 @@ const Projects = () => {
         <div className="flex flex-col gap-8">
           <h1 className="text-secondary text-xl">{projects[expIdx].title}</h1>
           <p className="text-white">{projects[expIdx].description}</p>
+          <h1 className="text-white ">
+            {projects[expIdx].technologies.length > 0 && "Technologies used:"}
+          </h1>
+          <div className="flex flex-row gap-3 flex-wrap -mt-[25px]">
+            {projects[expIdx].technologies.map((tech) => (
+              <div className="flex flex-row" key={tech}>
+                <span className="text-white">{tech}</span>
+              </div>
+            ))}
+          </div>
+          {projects[expIdx].link && (
+            <a href="#" className="text-white">
+              {projects[expIdx].link}
+            </a>
+          )}
         </div>
       </div>
     </div>

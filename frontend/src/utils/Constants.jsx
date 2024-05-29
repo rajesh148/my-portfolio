@@ -46,27 +46,27 @@ export const projects = [
     _id: 1,
     technologies: [],
     title: "title1",
-    image: "",
+    imageUrl: "",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt officia eius corrupti laborum cumque eum laboriosam voluptas perspiciatis velit est!",
-    link: "/",
+    link: "",
   },
   {
     _id: 2,
     technologies: [],
-    image: "",
+    imageUrl: "",
     title: "title2",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt officia eius corrupti laborum cumque eum laboriosam voluptas perspiciatis velit est!",
-    link: "/",
+    link: "",
   },
   {
     _id: 3,
     technologies: [],
-    image: "",
+    imageUrl: "",
     title: "title3",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt officia eius corrupti laborum cumque eum laboriosam voluptas perspiciatis velit est!",
-    link: "/",
+    link: "",
   },
 ];

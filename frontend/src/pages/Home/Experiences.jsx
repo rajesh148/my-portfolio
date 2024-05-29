@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import SectionTittle from "../../components/SectionTittle";
-import { experiences } from "../../utils/Constants";
+// import { experiences } from "../../utils/Constants";
+import { useSelector } from "react-redux";
 
 const Experiences = () => {
   const [expIdx, setExpIdx] = useState(0);
-  const [desc, setDesc] = useState("");
+
+  const { portfolioData } = useSelector((state) => state.root);
+
+  if (!portfolioData) return null;
+
+  let { experiences } = portfolioData;
 
   const handleExpIdx = (id) => {
     setExpIdx(id);
