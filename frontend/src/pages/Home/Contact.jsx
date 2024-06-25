@@ -28,7 +28,7 @@ const Contact = () => {
 
   return (
     <div>
-      <SectionTittle title="About Me" />
+      <SectionTittle title="Say Hello!" />
       <div className="flex">
         <div className="flex flex-col">
           <p className="text-white">{"{"}</p>

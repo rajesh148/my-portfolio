@@ -11,22 +11,11 @@ const LeftSider = () => {
           <a href="/" target="_blank">
             <i className="ri-linkedin-box-fill text-gray-600 text-xl"></i>
           </a>
-          <a href="/" target="_blank">
+          <a href="https://github.com/rajesh148" target="_blank">
             <i className="ri-github-fill text-gray-600 text-xl"></i>
           </a>
           <a href="/" target="_blank">
             <i className="ri-instagram-line text-gray-600 text-xl"></i>
-          </a>
-          <a href="/" target="_blank">
-            <i className="ri-instagram-line text-gray-600 text-xl"></i>
-          </a>
-
-          <a href="/" target="_blank">
-            <i className="ri-instagram-line text-gray-600 text-xl"></i>
-          </a>
-
-          <a href="/" target="_blank">
-            <i className="ri-facebook-circle-line text-gray-600 text-xl"></i>
           </a>
         </div>
         <div className="w-[1px] h-32 bg-[#125f63] lg:hidden"></div>
